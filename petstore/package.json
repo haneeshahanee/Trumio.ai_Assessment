@@ -1,0 +1,18 @@
+{
+  "name": "petstore-playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright API & UI Automation Framework for Swagger Petstore",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:api": "npx playwright test tests/api/",
+    "test:ui": "npx playwright test tests/ui/",
+    "test:report": "npx playwright show-report",
+    "test:headed": "npx playwright test --headed",
+    "lint": "npx tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.0"
+  }
+}
