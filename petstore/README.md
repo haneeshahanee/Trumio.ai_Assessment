@@ -1,11 +1,11 @@
-# 🐾 Petstore API Automation Framework
+# Petstore API Automation Framework
 
 Playwright + TypeScript automation framework for the [Swagger Petstore API](https://petstore.swagger.io).  
 Covers **API tests** (Pet, Store, User endpoints) and **UI smoke tests** (Swagger UI), organized in a single unified Playwright project.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 petstore-playwright/
@@ -34,57 +34,57 @@ petstore-playwright/
 
 ---
 
-## ✅ Test Coverage
+##  Test Coverage
 
 ### Pet Endpoints (`/pet`)
 | Scenario | Type |
 |---|---|
-| Add a valid pet | ✅ Positive |
-| Add pet with all optional fields | ✅ Positive |
-| Add minimal pet (required fields only) | ✅ Positive |
-| Add pets with each valid status | ✅ Positive |
-| Update pet name and status | ✅ Positive |
-| Update pet category | ✅ Positive |
-| Update non-existent pet | ❌ Negative |
-| Find pet by existing ID | ✅ Positive |
-| Find pet by non-existent ID → 404 | ❌ Negative |
-| Find pet by invalid ID format → 400 | ❌ Negative |
-| Delete existing pet | ✅ Positive |
-| Delete non-existent pet → 404 | ❌ Negative |
-| Find pets by status (available/pending) | ✅ Positive |
-| Find pets by invalid status → 400 | ❌ Negative |
+| Add a valid pet | Positive |
+| Add pet with all optional fields | Positive |
+| Add minimal pet (required fields only) | Positive |
+| Add pets with each valid status | Positive |
+| Update pet name and status | Positive |
+| Update pet category | Positive |
+| Update non-existent pet | Negative |
+| Find pet by existing ID | Positive |
+| Find pet by non-existent ID → 404 | Negative |
+| Find pet by invalid ID format → 400 | Negative |
+| Delete existing pet | Positive |
+| Delete non-existent pet → 404 | Negative |
+| Find pets by status (available/pending) | Positive |
+| Find pets by invalid status → 400 | Negative |
 
 ### Store Endpoints (`/store`)
 | Scenario | Type |
 |---|---|
-| Place valid order | ✅ Positive |
-| Place order with quantity > 1 | ✅ Positive |
-| Place orders with all valid statuses | ✅ Positive |
-| Place complete order | ✅ Positive |
-| Place order with invalid data | ❌ Negative |
-| Find order by existing ID | ✅ Positive |
-| Find order by non-existent ID → 404 | ❌ Negative |
-| Find order with out-of-range ID → 400 | ❌ Negative |
-| Find order with ID = 0 → 400 | ❌ Negative |
-| Delete existing order | ✅ Positive |
-| Delete non-existent order → 404 | ❌ Negative |
-| Delete order with negative ID → 400 | ❌ Negative |
-| Get store inventory map | ✅ Positive |
+| Place valid order | Positive |
+| Place order with quantity > 1 | Positive |
+| Place orders with all valid statuses | Positive |
+| Place complete order | Positive |
+| Place order with invalid data | Negative |
+| Find order by existing ID | Positive |
+| Find order by non-existent ID → 404 | Negative |
+| Find order with out-of-range ID → 400 | Negative |
+| Find order with ID = 0 → 400 | Negative |
+| Delete existing order | Positive |
+| Delete non-existent order → 404 | Negative |
+| Delete order with negative ID → 400 |  Negative |
+| Get store inventory map | Positive |
 
 ### User Endpoints (`/user`)
 | Scenario | Type |
 |---|---|
-| Create valid user | ✅ Positive |
-| Create users with array | ✅ Positive |
-| Create users with list | ✅ Positive |
-| Get user by username | ✅ Positive |
-| Get non-existent user → 404 | ❌ Negative |
-| Update existing user | ✅ Positive |
-| Delete existing user | ✅ Positive |
-| Delete non-existent user → 404 | ❌ Negative |
-| Login with valid credentials | ✅ Positive |
-| Login with invalid credentials → 400 | ❌ Negative |
-| Logout | ✅ Positive |
+| Create valid user | Positive |
+| Create users with array  Positive |
+| Create users with list | Positive |
+| Get user by username | Positive |
+| Get non-existent user → 404 | Negative |
+| Update existing user | Positive |
+| Delete existing user | Positive |
+| Delete non-existent user → 404 | Negative |
+| Login with valid credentials | Positive |
+| Login with invalid credentials → 400 | Negative |
+| Logout | Positive |
 
 ### End-to-End Workflows
 | Scenario |
@@ -105,7 +105,7 @@ petstore-playwright/
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 - **Node.js** v18 or higher
@@ -127,7 +127,7 @@ npx playwright install --with-deps
 
 ---
 
-## ▶️ Test Execution Instructions
+## Test Execution Instructions
 
 ### Run all tests
 ```bash
@@ -170,7 +170,7 @@ npx playwright test --reporter=list
 
 ---
 
-## 📊 Test Reports
+## Test Reports
 
 After running tests, reports are generated automatically:
 
@@ -188,7 +188,7 @@ npm run test:report
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Configuration is in `playwright.config.ts`:
 
@@ -203,7 +203,7 @@ API-specific constants (endpoints, status codes) live in `config/api.config.ts`.
 
 ---
 
-## 🧪 Test Design Principles
+## Test Design Principles
 
 - **Test Data Factory** — All test data is generated with unique timestamps to avoid collisions between parallel runs
 - **Custom Fixtures** — `createdPet` and `createdOrder` fixtures handle setup/teardown automatically
@@ -213,7 +213,7 @@ API-specific constants (endpoints, status codes) live in `config/api.config.ts`.
 
 ---
 
-## 🔧 Environment Variables
+## Environment Variables
 
 | Variable | Default | Description |
 |---|---|---|
@@ -222,7 +222,7 @@ API-specific constants (endpoints, status codes) live in `config/api.config.ts`.
 
 ---
 
-## 🐳 Running in CI (GitHub Actions example)
+## Running in CI (GitHub Actions example)
 
 ```yaml
 name: Playwright Tests
