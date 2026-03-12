@@ -57,10 +57,6 @@ orangehrm-automation/
 │   └── utils/
 │       ├── logger.ts             # Custom logger (console + file)
 │       └── helpers.ts            # Helper utilities
-├── reports/                      # Generated test reports (auto-created)
-├── logs/                         # Test execution logs (auto-created)
-├── .env                          # Environment variables (not committed)
-├── .env.example                  # Environment template
 ├── playwright.config.ts          # Playwright configuration
 ├── package.json
 ├── tsconfig.json
@@ -102,21 +98,6 @@ npx playwright install --with-deps chromium
 
 > To install all browsers: `npx playwright install --with-deps`
 
-### 4. Configure Environment Variables
-
-```bash
-cp .env.example .env
-```
-
-The default `.env` values work with the public demo site:
-
-```env
-BASE_URL=https://opensource-demo.orangehrmlive.com
-ADMIN_USERNAME=Admin
-ADMIN_PASSWORD=admin123
-```
-
----
 
 ## Configuration
 
@@ -273,104 +254,3 @@ BasePage (shared utilities)
 - `waitForSpinnerToDisappear()` — loading spinner handling
 
 ---
-
-## Test Reports
-
-After running tests, reports are generated in the `reports/` directory:
-
-| Report | Path | Description |
-|--------|------|-------------|
-| **HTML** | `reports/html-report/index.html` | Interactive visual report |
-| **JSON** | `reports/test-results.json` | Machine-readable results |
-| **JUnit XML** | `reports/junit-results.xml` | CI/CD compatible format |
-| **Artifacts** | `reports/test-artifacts/` | Screenshots, videos, traces |
-
-Open the HTML report:
-```bash
-npx playwright show-report reports/html-report
-```
-
----
-
-## Logs
-
-Logs are written to timestamped files in the `logs/` directory:
-
-```
-logs/test-run-2024-01-15T10-30-00.log
-```
-
-Log levels:
-- **STEP** (green) — Test action steps
-- **INFO** (cyan) — General information
-- **WARN** (yellow) — Warnings and retries
-- **ERROR** (red) — Failures and errors
-- **DEBUG** (gray) — Debug information
-
----
-
-## CI/CD Integration
-
-### GitHub Actions
-
-Create `.github/workflows/playwright.yml`:
-
-```yaml
-name: Playwright Tests
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install dependencies
-        run: npm ci
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-      - name: Run tests
-        run: npm test
-        env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-      - name: Upload HTML Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: reports/html-report/
-          retention-days: 30
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: test-artifacts
-          path: reports/test-artifacts/
-          retention-days: 7
-```
-
----
-
-## Troubleshooting
-
-**Tests failing due to network issues:**
-- The demo site at `opensource-demo.orangehrmlive.com` can be slow or reset. Run with `--retries=2` as a fallback.
-
-**Browser not found:**
-```bash
-npx playwright install chromium
-```
-
-**Timeout errors:**
-- Increase `timeout` in `playwright.config.ts` if on a slow connection.
-
-**Employee test data conflicts:**
-- Employee tests generate unique IDs based on timestamps to avoid conflicts.
