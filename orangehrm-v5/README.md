@@ -14,9 +14,6 @@ A comprehensive end-to-end UI automation framework for [OrangeHRM](https://opens
 - [Test Execution Instructions](#test-execution-instructions)
 - [Test Scenarios Covered](#test-scenarios-covered)
 - [Page Object Model](#page-object-model)
-- [Test Reports](#test-reports)
-- [Logs](#logs)
-- [CI/CD Integration](#cicd-integration)
 
 ---
 
