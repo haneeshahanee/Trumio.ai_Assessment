@@ -4,7 +4,7 @@ A comprehensive end-to-end UI automation framework for [OrangeHRM](https://opens
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#features)
 - [Project Structure](#project-structure)
@@ -20,22 +20,22 @@ A comprehensive end-to-end UI automation framework for [OrangeHRM](https://opens
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ **Playwright** with **TypeScript** for robust cross-browser testing
-- ✅ **Page Object Model (POM)** for clean, maintainable test architecture
-- ✅ **Test Data Management** with dynamic data generation
-- ✅ **Positive & Negative test scenarios** for complete coverage
-- ✅ **Custom Logger** with colored console output and file logging
-- ✅ **Multiple report formats**: HTML, JSON, JUnit XML
-- ✅ **Screenshots & Videos** on test failure
-- ✅ **Trace viewer** support for debugging
-- ✅ **Environment configuration** via `.env` file
-- ✅ **Error handling** with retry mechanisms
+-  **Playwright** with **TypeScript** for robust cross-browser testing
+-  **Page Object Model (POM)** for clean, maintainable test architecture
+-  **Test Data Management** with dynamic data generation
+- **Positive & Negative test scenarios** for complete coverage
+-  **Custom Logger** with colored console output and file logging
+-  **Multiple report formats**: HTML, JSON, JUnit XML
+-  **Screenshots & Videos** on test failure
+-  **Trace viewer** support for debugging
+-  **Environment configuration** via `.env` file
+-  **Error handling** with retry mechanisms
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 orangehrm-automation/
@@ -69,7 +69,7 @@ orangehrm-automation/
 
 ---
 
-## 🔧 Prerequisites
+## Prerequisites
 
 | Tool       | Version  | Install                        |
 |------------|----------|-------------------------------|
@@ -79,7 +79,7 @@ orangehrm-automation/
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -118,7 +118,7 @@ ADMIN_PASSWORD=admin123
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 The main configuration file is `playwright.config.ts`:
 
@@ -136,7 +136,7 @@ The main configuration file is `playwright.config.ts`:
 
 ---
 
-## 🧪 Test Execution Instructions
+## Test Execution Instructions
 
 ### Run All Tests
 
@@ -207,7 +207,7 @@ npx playwright show-report reports/html-report
 
 ---
 
-## 📋 Test Scenarios Covered
+## Test Scenarios Covered
 
 ### Login & Logout (`login.spec.ts`) — 12 Test Cases
 
@@ -249,7 +249,7 @@ npx playwright show-report reports/html-report
 
 ---
 
-## 🏗️ Page Object Model
+## Page Object Model
 
 Each page has its own class extending `BasePage`:
 
@@ -274,7 +274,7 @@ BasePage (shared utilities)
 
 ---
 
-## 📊 Test Reports
+## Test Reports
 
 After running tests, reports are generated in the `reports/` directory:
 
@@ -292,7 +292,7 @@ npx playwright show-report reports/html-report
 
 ---
 
-## 📝 Logs
+## Logs
 
 Logs are written to timestamped files in the `logs/` directory:
 
@@ -309,7 +309,7 @@ Log levels:
 
 ---
 
-## 🔄 CI/CD Integration
+## CI/CD Integration
 
 ### GitHub Actions
 
@@ -359,7 +359,7 @@ jobs:
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 **Tests failing due to network issues:**
 - The demo site at `opensource-demo.orangehrmlive.com` can be slow or reset. Run with `--retries=2` as a fallback.
